@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>远程关机</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}" rel="stylesheet">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css"> -->
+</head>
+
+<body>
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-6 col-md-8 col-sm-10">
+        <div class="card">
+          <div class="card-body">
+            <h1 class="card-title text-center mb-4">
+              远程关机
+            </h1>
+            {% if message %}
+            {% if message.startswith("密码错误") %}
+            <div class="alert alert-danger mb-4">{{ message }}</div>
+            {% else %}
+            <div class="alert alert-success mb-4">{{ message }}</div>
+            {% endif %}
+            {% endif %}
+
+            <form action="/" method="post">
+              <div class="form-group">
+                <label for="password">密码</label>
+                <input type="password" name="password" id="password" class="form-control" required placeholder="请输入密码">
+              </div>
+              <button type="submit" name="submit" value="shutdown" class="btn btn-danger btn-block">关机</button>
+            </form>
+
+            <div class="status-container mt-4">
+              {% if status %}
+              <p class="text-center">服务端状态：<span class="badge badge-success">在线</span></p>
+              {% else %}
+              <p class="text-center">服务端状态：<span class="badge badge-danger">离线</span></p>
+              {% endif %}
+              <button class="btn btn-secondary btn-block mt-3" type="button"
+                onclick="location.href='{{ url_for('refresh') }}'">
+                刷新
+              </button>
+              <form action="/" method="post">
+                <button class="btn btn-primary btn-block mt-3 wake-up-btn" type="submit" name="submit" value="wakeup">
+                  唤醒
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script> -->
+</body>
+
+</html>
