@@ -1,10 +1,6 @@
----
-lang: zh
----
-
 # PyPower
 
-[English](README.md) | [中文](https://github.com/eMUQI/PyPower/blob/main/_i18n/en/README.md)
+[中文](README.md) | [English](https://github.com/eMUQI/PyPower/blob/main/_i18n/en/README.md)
 
 这个项目可以通过一个Flask web应用实现远程关机的功能。
 

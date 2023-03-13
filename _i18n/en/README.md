@@ -1,6 +1,6 @@
 # shutdown-web-control
 
-[English](README.md) | [中文](https://github.com/eMUQI/PyPower/blob/main/README.md)
+[中文](README.md) | [English](https://github.com/eMUQI/PyPower/blob/main/_i18n/en/README.md)
 
 This project implements the remote shutdown function through a Flask web application.
 
